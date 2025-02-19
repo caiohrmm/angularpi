@@ -1,0 +1,9 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.tarefa-concluida {
+  text-decoration: line-through;
+}

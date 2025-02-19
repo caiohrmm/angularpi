@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>{{ titulo }}</h2>
+  <p>Caio Henrique R. Martins 268312</p>
+  <p>Total de Tarefas: {{ tarefas.length }}</p>
+
+  <input type="text" [(ngModel)]="novaTarefa" placeholder="Nova Tarefa" />
+  <button (click)="adicionarTarefa()">Adicionar</button>
+  <button (click)="toggleLista()">
+    {{ exibirLista ? 'Ocultar' : 'Exibir' }} Lista
+  </button>
+
+  <ul *ngIf="exibirLista">
+    <li *ngFor="let tarefa of tarefas; let i = index"
+        [ngClass]="{'tarefa-concluida': tarefa.concluida}"
+        [ngStyle]="{color: tarefa.concluida ? 'green' : 'black'}">
+      {{ tarefa.nome }}
+      <button (click)="concluirTarefa(i)" [disabled]="tarefa.concluida">
+        Concluir
+      </button>
+    </li>
+  </ul>
+</div>
